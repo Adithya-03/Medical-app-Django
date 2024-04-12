@@ -1,0 +1,37 @@
+
+{%extends 'base.html'%}
+{% load static %}
+{%block 'content' %}
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title justify-content-center">Add Medicine</h5>
+          <form method="POST" action="{% url 'create' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="exampleInputName" class="form-label">Medicine Name</label>
+              <input type="text" class="form" name="name" id="exampleInputName" placeholder=" Medicine name">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputcatagory1" class="form-label">Medicine catagory</label>
+              <input type="text" class="form" name="catagory" id="exampleInputcatagory1" aria-describedby="medHelp" placeholder="Medicine catagory">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputprice1" class="form-label">Medicine Price</label>
+              <input type="text" class="form" name="price" id="exampleInputprice" aria-describedby="priceHelp" placeholder="Enter price">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit </button>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<link rel="stylesheet" type="text/css" href="{% static 'static/create.css' %}">
+
+{% endblock%}

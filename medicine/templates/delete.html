@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{%block 'content' %}
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card mt-5">
+        <div class="card-body">
+            <h5 class="card-title">Delete Medicine</h5>
+            <form method="post" action="">
+                {% csrf_token %}
+                <p>Are you sure you want to delete ?</p>
+                <div class="row">
+                    <div class="col">
+                        <input type="submit" value="Confirm" class="btn btn-danger btn-block">
+                    </div>
+                    <div class="col-auto">
+                        <a class="btn btn-primary btn-block me-2" href="{% url 'data' %}" role="button">Cancel</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'static/delete.css' %}">
+{% endblock %}

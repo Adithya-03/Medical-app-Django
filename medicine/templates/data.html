@@ -1,0 +1,125 @@
+{%extends 'base.html'%}
+{% load static %}
+{%block 'content' %}
+
+<!-- <div class="container">
+    <div class="row mb-3">
+        <!-- Left-aligned column for search form -->
+        <!-- <div class="col">
+            <form class="d-flex mt-3" role="search" method="get" action="{% url 'search' %}">
+            
+                <input class="form me-2" type="search" name="q" placeholder="Search" aria-label="Search">
+                <button class="btn btn-warning ms-0 ml-0" type="submit">Search</button>
+            </form>
+        </div>
+      
+        <div class="col-auto mt-3">
+            <a href="{% url 'create' %}" class="btn btn-primary">Add Medicine</a>
+        </div>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Medicine ID</th>
+                <th>Medicine Name</th>
+                <th>Medicine Category</th>
+                <th>Medicine Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for medicine in medicine_list %}
+            <tr>
+                <td>{{ medicine.id }}</td>
+                <td>{{ medicine.name }}</td>
+                <td>{{ medicine.catagory }}</td> 
+                <td>{{ medicine.price }}</td>
+                <td>
+                    <a href="{% url 'update' medicine.id %}" class="btn btn-success" role="button">Edit</a>
+                    <a href="{% url 'delete' medicine.id %}" class="btn btn-danger" role="button">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody> -->
+    <!-- </table>
+</div> -->
+
+{% block content %}
+
+<div class="container">
+    <div class="row mb-3">
+        <!-- Left-aligned column for search form -->
+        <div class="col">
+            <form class="d-flex mt-3" role="search" method="get" action="{% url 'search' %}">
+            
+                <input class="form me-2" type="search" name="q" placeholder="Search" aria-label="Search">
+                <button class="btn btn-warning ms-0 ml-0" type="submit">Search</button>
+            </form>
+        </div>
+        <!-- Right-aligned column for Add button -->
+        <div class="col-auto mt-3">
+            <a href="{% url 'create' %}" class="btn btn-primary">Add Medicine</a>
+        </div>
+    </div>
+
+    <!-- Medicine Table -->
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Medicine ID</th>
+                <th>Medicine Name</th>
+                <th>Medicine Category</th>
+                <th>Medicine Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for medicine in medicine_list %}
+            <tr>
+                <td>{{ medicine.id }}</td>
+                <td>{{ medicine.name }}</td>
+                <td>{{ medicine.catagory }}</td> 
+                <td>{{ medicine.price }}</td>
+                <td>
+                    <a href="{% url 'update' medicine.id %}" class="btn btn-success" role="button">Edit</a>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{ medicine.id }}">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+            <!-- Modal -->
+            <div class="modal fade" id="deleteModal{{ medicine.id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ medicine.id }}" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteModalLabel{{ medicine.id }}">Confirm Delete</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure you want to delete "{{ medicine.name }}"?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button> 
+                            <!-- <a href="{% url 'delete' medicine.id %}" class="btn btn-danger">Delete</a>  -->
+                        
+                        <form method="post" action="{% url 'delete' medicine.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'static/data.css' %}">
+
+ 
+
+{%endblock%}

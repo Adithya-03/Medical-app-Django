@@ -1,0 +1,151 @@
+
+{%extends 'base.html'%}
+{% load static %}
+{%block 'content' %}
+
+ <div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title justify-content-center">Edit Medicine</h5>
+          <form method="POST" action="">
+            {% csrf_token %}
+            <div class="mb-3"> 
+              <label for="exampleInputName" class="form-label">Medicine Name</label> 
+              <!-- <input type="text" class="form" name="name" id="exampleInputName" placeholder=" Medicine name">  -->
+              <input type="text" id="id_name" class="form" name="name" placeholder=" Medicine name" value="{{ form.name.value }}">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputcatagory1" class="form-label">Medicine catagory</label> 
+              <!-- <input type="text" class="form" name="catagory" id="exampleInputcatagory1" aria-describedby="medHelp" placeholder="Medicine catagory">  -->
+              <input type="text" id="id_catagory" class="form" placeholder=" Medicine name" name="catagory" value="{{ form.catagory.value }}"> 
+
+              
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputprice1" class="form-label">Medicine Price</label> 
+              <!-- <input type="text" class="form" name="price" id="exampleInputprice" aria-describedby="priceHelp" placeholder="Enter price"> -->
+              <input type="text"  class="form"  id="id_price" name="price" placeholder="Enter price" value="{{ form.price.value }}">
+            </div>
+            <button type="submit" class="btn btn-warning">Submit </button>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> -->
+    <!-- <title>Edit Medicine</title> -->
+    <!-- Include Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body> -->
+    <!-- <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title">Edit Medicine</h1>
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form.non_field_errors }}
+                            
+                            <div class="form-group">
+                                <label for="id_name">Name:</label>
+                                {{ form.name }}
+                                {{ form.name.errors }}
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="id_catagory">Category:</label>
+                                {{ form.catagory }}
+                                {{ form.catagory.errors }}
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="id_price">Price:</label>
+                                {{ form.price }}
+                                {{ form.price.errors }}
+                            </div>
+                            
+                            <!-- Add more fields here as needed -->
+<!--                             
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+<!-- 
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Edit Medicine</title>
+        <!-- Include Bootstrap CSS -->
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+    <body>  -->
+        <!-- <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h1 class="card-title">Edit Medicine</h1>
+                            <form method="post">
+                                {% csrf_token %}
+                                <!-- {{ form.non_field_errors }} -->
+<!--                                 
+                                <div class="form-group row">
+                                    <label for="id_name" class="col-sm-3 col-form-label">Name:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="id_name" name="name" class="form-control" value="{{ form.name.value }}"> -->
+                                        <!-- {{ form.name.errors }} -->
+                                    <!-- </div>
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <label for="id_catagory" class="col-sm-3 col-form-label">Category:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="id_category" name="catagory" class="form-control" value="{{ form.catagory.value }}"> -->
+                                        <!-- {{ form.catagory.errors }} -->
+                                    <!-- </div>
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <label for="id_price" class="col-sm-3 col-form-label">Price:</label>
+                                    <div class="col-sm-9"> -->
+                                        <!-- {{ form.price }} -->
+                                        <!-- <input type="text" id="id_price" name="price" class="form-control" value="{{ form.price.value }}"> -->
+                                        <!-- {{ form.price.errors }} -->
+                                    <!-- </div>
+                                </div>
+                                 -->
+                                <!-- Add more fields here as needed -->
+                                
+                                <!-- <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <button type="submit" class="btn btn-primary">Update</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    
+    
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'static/create.css' %}">
+
+{% endblock%}

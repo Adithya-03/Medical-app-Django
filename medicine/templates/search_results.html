@@ -1,0 +1,57 @@
+{%extends 'base.html'%}
+{% load static %}
+{%block 'content' %}
+
+{% if medicine_list %}
+    <!-- <h2>Search Results for "{{ query }}"</h2> -->
+    <div class="container">
+        <div class="row mb-3">
+            <!-- Left-aligned column for search form -->
+            <div class="col">
+                <form class="d-flex mt-3" role="search" method="get" action="{% url 'search' %}">
+                
+                    <input class="form me-2" type="search" name="q" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-warning ms-0 ml-0" type="submit">Search</button>
+                </form>
+            </div>
+            <!-- Right-aligned column for Add button -->
+            <div class="col-auto mt-3">
+                <a href="{% url 'create' %}" class="btn btn-primary">Add Medicine</a>
+            </div>
+        </div>
+    
+        <!-- Medicine Table -->
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Medicine ID</th>
+                    <th>Medicine Name</th>
+                    <th>Medicine Category</th>
+                    <th>Medicine Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for medicine in medicine_list %}
+                <tr>
+                    <td>{{ medicine.id }}</td>
+                    <td>{{ medicine.name }}</td>
+                    <td>{{ medicine.catagory }}</td> 
+                    <td>{{ medicine.price }}</td>
+                    <td>
+                        <a href="{% url 'update' medicine.id %}" class="btn btn-success" role="button">Edit</a>
+                        <a href="{% url 'delete' medicine.id %}" class="btn btn-danger" role="button">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% else %}
+    <p>No results found for "{{ query }}".</p>
+{% endif %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'static/data.css' %}">
+
+{% endblock%}
+

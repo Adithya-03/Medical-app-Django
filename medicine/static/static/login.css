@@ -1,0 +1,38 @@
+.card {
+    border-radius: 0; /* Set border-radius to 0 for sharper edges */
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.card-title {
+    /* color :#83bf86; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold; /* Change the color to green */
+}
+.form-label{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+   
+}
+
+.form {
+    width: 100%;
+    height: 2.3rem; /* Make input fields full width */
+}
+
+
+
+.card {
+    width: 400px; /* Set the width of the card */
+    margin: 0 auto;
+    margin: 0 49px; 
+    margin-top: 129px; 
+     /* Center the card horizontally */
+  }
+body{
+background-size: cover; 
+background-image: url('/static/login.jpg'); 
+ background-repeat: no-repeat;  
+} 
+
+
+

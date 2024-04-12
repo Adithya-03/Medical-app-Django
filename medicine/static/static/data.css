@@ -1,0 +1,14 @@
+ body {
+    background-image: url('/static/data3456.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+    height: 100vh; /* Remove default padding */
+     overflow: hidden; 
+} 
+
+.btn-primary{
+ padding-left: 6px;
+ padding-right: 6px;
+
+}

@@ -1,0 +1,58 @@
+<!-- {% extends 'base.html'%}
+{% block 'content' %}
+
+<span>
+    <a href="{%url 'sign' %}" class="btn btn-primary" value="edit" type="submit">Signup</a>
+    <a href="{%url 'login'  %}" class="btn btn-danger" value="edit" type="submit">Login</a>
+</span>
+<form action="" method="POST">
+    {{form.errors}}
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleInputName" class="form-label">Name</label>
+      <input type="text" class="form" id="exampleInputName" name="name" aria-describedby="emailHelp">
+    </div>
+      
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email </label>
+        <input type="email" class="form" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+      <!-- </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form" name="password" id="exampleInputPassword1">
+      </div>
+      <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+          <input type="password" class="form" name="confirmpassword" id="exampleInputPassword1">
+      </div>
+      <button type="submit" class="btn btn-primary">Sign in</button>
+    </form>
+
+  
+{% endblock %}  -->
+
+
+<h1>Edit Medicine</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        
+        <label for="id_name">Name:</label>
+        {{ form.name }}
+        {{ form.name.errors }}
+        
+        <label for="id_catagory">Manufacturer:</label>
+        {{ form.catagory }}
+        {{ form.catagoryr.errors }}
+        <label for="id_catagory">Manufacturer:</label>
+        {{ form.price }}
+        {{ form.price.errors }}
+        
+        <!-- Add more fields here as needed -->
+        
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>
+
